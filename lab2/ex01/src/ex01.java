@@ -39,28 +39,26 @@ public class ex01 {
 
 }
 
-/*
- * public static void main(String[] args) {
- * File pasta = new File(PATH);
- * File[] listaDeArq = pasta.listFiles(); // lista os arquivos do caminho e
- * armazenam no vetor criado
- * int totalLinhas = 0;
- * for (File arquivo : listaDeArq) { // percorre vetor de arquivos
- * if (arquivo.isFile() && arquivo.getName().endsWith(".txt")) { // se for
- * arquivo e se terminar com txt
- * LineCounter lineCounter = new LineCounter(arquivo); // cria objeto do tipo
- * LineCounter
- * Thread thread = new Thread(lineCounter);
- * thread.start();
- * try {
- * thread.join();
- * } catch (InterruptedException e) {
- * e.printStackTrace();
- * }
- * totalLinhas += lineCounter.getLines();
- * }
- * }
- * System.out.println("Número total de linhas: " + totalLinhas);
- * }
- * }
- */
+/* Método alternativo sem stream:
+
+public static void main(String[] args) {
+    File pasta = new File(PATH);
+    File[] listaDeArq = pasta.listFiles(); // lista os arquivos do caminho e armazenam no vetor criado
+    int totalLinhas = 0;
+    for (File arquivo : listaDeArq) { // percorre vetor de arquivos
+        if (arquivo.isFile() && arquivo.getName().endsWith(".txt")) { // se for arquivo e se terminar com txt
+            LineCounter lineCounter = new LineCounter(arquivo); // cria objeto do tipo LineCounter
+
+            Thread thread = new Thread(lineCounter);
+            thread.start();
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            totalLinhas += lineCounter.getLines();
+        }
+    }
+    System.out.println("Número total de linhas: " + totalLinhas);
+}
+*/
