@@ -8,12 +8,9 @@ import abstract_factory.factories.*;
 public class Demo {
     private static List<Application> configApplication() {
         List<Application> apps = new ArrayList<>();
-        CarFactory factory[] = new CarFactory[3];
-        factory[0] = new VolvoFactory();
-        factory[1] = new MercedesFactory();
-        factory[2] = new PorscheFactory();
-        for (CarFactory carFactory : factory) {
-            Application app = new Application(carFactory);
+        CarFactory factories[] = {new VolvoFactory(), new MercedesFactory(), new PorscheFactory()};
+        for (CarFactory factory : factories) {
+            Application app = new Application(factory);
             apps.add(app);
         }
         return apps;

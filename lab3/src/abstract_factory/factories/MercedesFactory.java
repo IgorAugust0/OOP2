@@ -1,11 +1,11 @@
 package abstract_factory.factories;
 
 import abstract_factory.accessories.Accessories;
-import abstract_factory.accessories.MercedesAccessories;
+import abstract_factory.accessories.G63Accessories;
 import abstract_factory.cars.G63;
 import abstract_factory.cars.Car;
 import abstract_factory.engines.Engine;
-import abstract_factory.engines.MercedesEngine;
+import abstract_factory.engines.G63Engine;
 
 public class MercedesFactory implements CarFactory {
 
@@ -16,11 +16,11 @@ public class MercedesFactory implements CarFactory {
 
     @Override
     public Engine createEngine() {
-        return new MercedesEngine();
+        return new G63Engine();
     }
 
     @Override
     public Accessories createAccessories() {
-        return new MercedesAccessories();
+        return new G63Accessories();
     }
 }

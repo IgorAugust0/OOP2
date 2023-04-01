@@ -1,11 +1,11 @@
 package abstract_factory.factories;
 
 import abstract_factory.accessories.Accessories;
-import abstract_factory.accessories.PorscheAccessories;
+import abstract_factory.accessories.PanameraAccessories;
 import abstract_factory.cars.Car;
 import abstract_factory.cars.Panamera;
 import abstract_factory.engines.Engine;
-import abstract_factory.engines.PorscheEngine;
+import abstract_factory.engines.PanameraEngine;
 
 public class PorscheFactory implements CarFactory {
     @Override
@@ -15,11 +15,11 @@ public class PorscheFactory implements CarFactory {
 
     @Override
     public Engine createEngine() {
-        return new PorscheEngine();
+        return new PanameraEngine();
     }
 
     @Override
     public Accessories createAccessories() {
-        return new PorscheAccessories();
+        return new PanameraAccessories();
     }
 }

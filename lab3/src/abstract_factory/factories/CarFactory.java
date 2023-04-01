@@ -11,3 +11,16 @@ public interface CarFactory {
 
     Accessories createAccessories();
 }
+
+/**
+ * Uma forma alternativa seria utilizando generics ("T"), porém não tenho
+ * certeza de que se seria a melhor opção para abstract factory.
+ * 
+ * public interface CarFactory <T extends Car> {
+ * T createCar();
+ * 
+ * Engine createEngine();
+ * 
+ * Accessories createAccessories();
+ * }
+ */
