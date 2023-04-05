@@ -13,14 +13,15 @@ Repositório com arquivos do curso de Programação Orientada a Objetos 2 do cur
 ## Conteúdo dos Labs
 
 
-| Lab   | Conteúdo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| 01 | Revisão |  |
-| 02 | Threads  |  |
-| 03 | Creacionais Factory |  |
-| 04 | Creacionais Factory |  |
+| Lab   | Conteúdo |   
+| :---------- | :--------- |
+| 01 | Revisão |  
+| 02 | Threads  | 
+| 03 | Creacionais Factory | 
+| 04 | Creacionais Factory | 
 
 
 ## Autores
 
 - [@IgorAugust0](https://github.com/IgorAugust0)
+
