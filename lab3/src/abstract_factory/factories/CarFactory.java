@@ -14,7 +14,7 @@ public interface CarFactory {
 
 /**
  * Uma forma alternativa seria utilizando generics ("T"), porém não tenho
- * certeza de que se seria a melhor opção para abstract factory.
+ * certeza se seria a melhor opção para abstract factory.
  * 
  * public interface CarFactory <T extends Car> {
  * T createCar();
