@@ -1,6 +1,6 @@
 # Labs de POO2
 
-Repositório com arquivos do curso de Programação Orientada a Objetos 2 do curso de Sistemas de Informações da Universidade Federal de Uberlândia (UFU).
+Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (POO2) do curso de Sistemas de Informações da Universidade Federal de Uberlândia (UFU).
 
 
 ## Labs
@@ -21,7 +21,7 @@ Repositório com arquivos do curso de Programação Orientada a Objetos 2 do cur
 | 04 | Creacionais Factory | 
 
 
-## Autores
+## Autor
 
 - [@IgorAugust0](https://github.com/IgorAugust0)
 
