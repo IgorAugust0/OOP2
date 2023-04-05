@@ -7,6 +7,13 @@ import abstract_factory.cars.XC90;
 import abstract_factory.engines.Engine;
 import abstract_factory.engines.XC90Engine;
 
+/**
+ * Classe que implementa a interface CarFactory e define os métodos createCar,
+ * createEngine e createAccessories para criar um carro da marca Volvo.
+ * 
+ * A classe VolvoFactory é uma das classes concretas que implementam a
+ * interface CarFactory.
+ */
 public class VolvoFactory implements CarFactory {
     @Override
     public Car createCar() {

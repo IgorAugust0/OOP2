@@ -1,5 +1,11 @@
 package abstract_factory.engines;
 
+/**
+ * Classe que implementa a interface Engine e define o método start para produzir
+ * um motor de Porsche.
+ * 
+ * A classe PanameraEngine é uma das classes concretas que implementam a interface Engine.
+ */
 public class PanameraEngine implements Engine {
     
     @Override
