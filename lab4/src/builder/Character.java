@@ -8,6 +8,9 @@ public class Character {
     private final Race race;
     private final Profession profession;
     private final EquipmentType equipmentType;
+    // private final WeaponType weapon;
+    // private final ArmorType armor;
+    // private final ItemType item;
     private final EquipmentName equipmentName;
     private final int healthPoints;
     private final int strength;
@@ -89,5 +92,15 @@ public class Character {
 
         return characterString;
     }
+
+    // (exemplo: “Ragnar, elfo guerreiro | Vida: 5 | Força: 8 | Defesa: 7 | Arma:
+    // espada de gelo | Item: poção de cura
+    // @Override
+    // public String toString() {
+    //     String characterString = String.format("%s, %s %s\n", name, race, profession);
+    //     characterString += String.format("Vida: %d | Força: %d | Defesa: %d | Arma: %s | Item: %s\n", healthPoints,
+    //             strength, defense, weapon, item);
+    //     return characterString;
+    // }
 
 }

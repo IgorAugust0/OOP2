@@ -4,7 +4,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 import builder.Character;
+import builder.InputUtils;
 import builder.attributes.*;
+import builder.game.Score;
 
 public class CharacterBuilder implements Builder {
     private String name;
@@ -12,6 +14,8 @@ public class CharacterBuilder implements Builder {
     private Race race;
     private Profession profession;
     private EquipmentType equipmentType;
+    // private WeaponType weaponType;
+    // private ArmorType armorType;
     private EquipmentName equipmentName;
     private int healthPoints;
     private int strength;
@@ -21,66 +25,91 @@ public class CharacterBuilder implements Builder {
     private int level = 1;
     private int maxHealth;
     private int currentHealth;
+    private Score score;
+
+    public CharacterBuilder(Score score) {
+        this.score = score;
+    }
 
     @Override
     public void setName(String name) {
         this.name = name;
+        score.addPoints(10);
     }
 
     @Override
     public void setGender(Gender gender) {
         this.gender = gender;
+        score.addPoints(5);
     }
 
     @Override
     public void setRace(Race race) {
         this.race = race;
+        score.addPoints(20);
     }
 
     @Override
     public void setProfession(Profession profession) {
         this.profession = profession;
+        score.addPoints(15);
     }
 
     @Override
     public void setEquipmentType(EquipmentType equipmentType) {
         this.equipmentType = equipmentType;
+        score.addPoints(5);
+    }
+
+    @Override
+    public void setEquipmentName(EquipmentName equipmentName) {
+        this.equipmentName = equipmentName;
+        score.addPoints(5);
+    }
+
+    @Override
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
+        score.addPoints(2);
+    }
+
+    @Override
+    public void setStrength(int strength) {
+        this.strength = strength;
+        score.addPoints(3);
+    }
+
+    @Override
+    public void setDefense(int defense) {
+        this.defense = defense;
+        score.addPoints(3);
+    }
+
+    @Override
+    public void setIntelligence(int intelligence) {
+        this.intelligence = intelligence;
+        score.addPoints(5);
+    }
+
+    @Override
+    public void setDexterity(int dexterity) {
+        this.dexterity = dexterity;
+        score.addPoints(4);
     }
 
     public EquipmentType getEquipmentType() {
         return this.equipmentType;
     }
 
-    @Override
-    public void setEquipmentName(EquipmentName equipmentName) {
-        this.equipmentName = equipmentName;
+    public EquipmentName getEquipmentName() {
+        return this.equipmentName;
     }
 
-    @Override
-    public void setHealthPoints(int healthPoints) {
-        this.healthPoints = healthPoints;
+    public Score getScore() {
+        return this.score;
     }
 
-    @Override
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    @Override
-    public void setDefense(int defense) {
-        this.defense = defense;
-    }
-
-    @Override
-    public void setIntelligence(int intelligence) {
-        this.intelligence = intelligence;
-    }
-
-    @Override
-    public void setDexterity(int dexterity) {
-        this.dexterity = dexterity;
-    }
-
+    // MÉTODOS PARA USAR NO METODO MANUALATTRIBUTES()
     public Profession getProfession() {
         return this.profession;
     }
@@ -105,6 +134,7 @@ public class CharacterBuilder implements Builder {
         this.currentHealth = currentHealth;
     }
 
+    // Rolar atributos aleatoriamente
     public void rollAttributes() {
         final Random random = new Random();
         healthPoints = random.nextInt(10) + 1;
@@ -114,24 +144,20 @@ public class CharacterBuilder implements Builder {
         dexterity = random.nextInt(10) + 1;
     }
 
+    // Atribuir atributos manualmente pelo usuário
     public void manualAttributes() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Manually set attributes:");
-        System.out.print("Enter strength (between 1 and 20): ");
-        int strength = scanner.nextInt();
-        System.out.print("Enter intelligence (between 1 and 20): ");
-        int intelligence = scanner.nextInt();
-        System.out.print("Enter dexterity (between 1 and 20): ");
-        int dexterity = scanner.nextInt();
-        System.out.print("Enter defense (between 1 and 20): ");
-        int defense = scanner.nextInt();
-        scanner.nextLine(); // consume newline
-
+        int strength = InputUtils.getValidInput(scanner, "Enter strength (between 1 and 20): ", 1, 20);
+        int defense = InputUtils.getValidInput(scanner, "Enter defense (between 1 and 20): ", 1, 20);
+        int intelligence = InputUtils.getValidInput(scanner, "Enter intelligence (between 1 and 20): ", 1, 20);
+        int dexterity = InputUtils.getValidInput(scanner, "Enter dexterity (between 1 and 20): ", 1, 20);
+        
         Profession profession = getProfession();
 
-        // impose attribute limits based on profession
+        // Imposição de limite de atributos baseado na profissão
         switch (profession) {
-            case WARRIOR:
+            case WARRIOR -> {
                 if (strength > 15) {
                     strength = 15;
                 }
@@ -144,35 +170,35 @@ public class CharacterBuilder implements Builder {
                 if (defense > 15) {
                     defense = 15;
                 }
-                break;
-            case MAGE:
+            }
+            case MAGE -> {
                 if (strength > 10) {
                     strength = 10;
                 }
                 if (intelligence > 15) {
                     intelligence = 15;
                 }
-                if (dexterity > 12) {
-                    dexterity = 12;
+                if (dexterity > 10) {
+                    dexterity = 10;
                 }
                 if (defense > 10) {
                     defense = 10;
                 }
-                break;
-            case ROGUE:
-                if (strength > 12) {
-                    strength = 12;
+            }
+            case ROGUE -> {
+                if (strength > 10) {
+                    strength = 10;
                 }
-                if (intelligence > 12) {
-                    intelligence = 12;
+                if (intelligence > 10) {
+                    intelligence = 10;
                 }
                 if (dexterity > 15) {
                     dexterity = 15;
                 }
-                if (defense > 12) {
-                    defense = 12;
+                if (defense > 10) {
+                    defense = 10;
                 }
-                break;
+            }
         }
 
         setStrength(strength);
@@ -195,120 +221,3 @@ public class CharacterBuilder implements Builder {
     }
 
 }
-// public void rollAttributes() {
-// Scanner scanner = new Scanner(System.in);
-// int option;
-
-// System.out.println("Select an option:");
-// System.out.println("1. Randomly roll attributes");
-// System.out.println("2. Manually assign attributes");
-// option = scanner.nextInt();
-// scanner.nextLine(); // consume newline
-
-// if (option == 1) {
-// // randomly roll attributes
-// Random random = new Random();
-// int maxHealthPoints =
-// profession.getMaxAttribute(AttributeType.HEALTH_POINTS);
-// int maxStrength = profession.getMaxAttribute(AttributeType.STRENGTH);
-// int maxDefense = profession.getMaxAttribute(AttributeType.DEFENSE);
-// int maxIntelligence = profession.getMaxAttribute(AttributeType.INTELLIGENCE);
-// int intelligenceLimit = profession.getIntelligenceLimit();
-// int maxAgility = profession.getMaxAttribute(AttributeType.AGILITY);
-// int maxAttribute = profession.getMaxAttribute(AttributeType.HEALTH_POINTS);
-
-// healthPoints = random.nextInt(maxHealthPoints) + 1;
-// strength = random.nextInt(maxStrength) + 1;
-// defense = random.nextInt(maxDefense) + 1;
-// intelligence = random.nextInt(maxIntelligence) + 1;
-// agility = random.nextInt(maxAgility) + 1;
-
-// // Check intelligence limit based on profession
-// if (intelligence > intelligenceLimit) {
-// intelligence = intelligenceLimit;
-// }
-
-// // Check for overpowered character
-// int totalPoints = healthPoints + strength + intelligence;
-// int maxTotalPoints = maxHealthPoints + maxStrength + maxIntelligence;
-// if (totalPoints > maxTotalPoints || healthPoints > maxAttribute ||
-// strength > maxAttribute || intelligence > maxAttribute || dexterity >
-// maxAttribute) {
-// System.out.println("Sorry, your character is overpowered. Please try
-// again.");
-// rollAttributes();
-// } else {
-// character.setHealthPoints(healthPoints);
-// character.setStrength(strength);
-// character.setIntelligence(intelligence);
-// character.setDexterity(dexterity);
-// }
-// } else if (option == 2) {
-// // manually assign attributes
-// int maxHealthPoints = profession.getMaxHealthPoints();
-// int maxStrength = profession.getMaxStrength();
-// int maxIntelligence = profession.getMaxIntelligence();
-// int intelligenceLimit = profession.getIntelligenceLimit();
-// int maxAttribute = profession.getMaxAttribute();
-
-// System.out.println("Enter strength (maximum " + maxAttribute + "): ");
-// int strength = scanner.nextInt();
-// scanner.nextLine(); // consume newline
-// strength = Math.min(maxAttribute, strength);
-
-// System.out.println("Enter dexterity (maximum " + maxAttribute + "): ");
-// int dexterity = scanner.nextInt();
-// scanner.nextLine(); // consume newline
-// dexterity = Math.min(maxAttribute, dexterity);
-
-// System.out.println("Enter intelligence (maximum " + intelligenceLimit + "):
-// ");
-// int intelligence = scanner.nextInt();
-// scanner.nextLine(); // consume newline
-// intelligence = Math.min(intelligenceLimit, intelligence);
-
-// System.out.println("Enter health points (maximum " + maxAttribute + "): ");
-// int healthPoints = scanner.nextInt();
-// scanner.nextLine(); // consume newline
-// healthPoints = Math.min(maxAttribute, healthPoints);
-
-// // Check for overpowered character
-// int totalPoints = healthPoints + strength + intelligence;
-// int maxTotalPoints = maxHealthPoints + maxStrength + maxIntelligence;
-// if (totalPoints > maxTotalPoints || healthPoints > maxAttribute ||
-// strength > maxAttribute || intelligence > maxAttribute || dexterity >
-// maxAttribute) {
-// System.out.println("Sorry, your character is overpowered. Please try
-// again.");
-// rollAttributes();
-// } else {
-// character.setHealthPoints(healthPoints);
-// character.setStrength(strength);
-// character.setIntelligence(intelligence);
-// character.setDexterity(dexterity);
-// }
-// }
-// }
-// public void setAttribute(String attributeType, int value) {
-// switch (attributeType.toLowerCase()) {
-// case "health points":
-// this.healthPoints = value;
-// break;
-// case "strength":
-// this.strength = value;
-// break;
-// case "defense":
-// this.defense = value;
-// break;
-// case "intelligence":
-// this.intelligence = value;
-// break;
-// case "agility":
-// this.agility = value;
-// break;
-// default:
-// System.out.println(
-// "Invalid attribute type. Please choose from: health points, strength,
-// defense, intelligence, agility.");
-// }
-// }
