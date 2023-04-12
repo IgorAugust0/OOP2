@@ -1,10 +1,7 @@
 package builder.builders;
 
-import builder.attributes.EquipmentName;
-import builder.attributes.EquipmentType;
-import builder.attributes.Gender;
-import builder.attributes.Profession;
-import builder.attributes.Race;
+import builder.attributes.*;
+import builder.equipments.*;
 
 public interface Builder {
 
@@ -12,6 +9,11 @@ public interface Builder {
     void setProfession(Profession profession);;
     void setEquipmentType(EquipmentType equipmentType);
     void setEquipmentName(EquipmentName equipmentName);
+    void setWeaponType(WeaponType weapon);
+    void setArmorType(ArmorType armor);
+    void setItemType(ItemType item);
+    void setRingType(RingType ring);
+    void setPotionType(PotionType potion);
     void setHealthPoints(int healthPoints);
     void setStrength(int strength);
     void setDefense(int defense);

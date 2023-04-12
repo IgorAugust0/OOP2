@@ -1,9 +1,9 @@
-package builder;
+package test;
 
 import java.util.Scanner;
 
-import builder.builders.CharacterBuilder;
-import builder.director.Director;
+import test.builders.*;
+import test.director.*;
 public class Demo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

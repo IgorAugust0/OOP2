@@ -1,25 +1,21 @@
-package builder.builders;
+package test.builders;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import builder.attributes.*;
-import builder.character.Character;
-import builder.equipments.*;
-import builder.util.InputUtils;
+import test.attributes.*;
+import test.character.*;
+import test.character.Character;
+import test.util.InputUtils;
 
 public class CharacterBuilder implements Builder {
     private String name;
     private Gender gender;
     private Race race;
     private Profession profession;
-    private EquipmentType equipmentType;
-    private WeaponType weapon;
-    private ArmorType armor;
-    private ItemType item;
-    private RingType ring;
-    private PotionType potion;
-    private EquipmentName equipmentName;
+    private List<Equipment> equipment;
+    private List<Item> inventory;
     private int healthPoints;
     private int strength;
     private int defense;
@@ -50,40 +46,15 @@ public class CharacterBuilder implements Builder {
     }
 
     @Override
-    public void setEquipmentType(EquipmentType equipmentType) {
-        this.equipmentType = equipmentType;
+    public void setEquipment(List<Equipment> equipment) {
+        this.equipment = equipment;
     }
 
     @Override
-    public void setEquipmentName(EquipmentName equipmentName) {
-        this.equipmentName = equipmentName;
+    public void setInventory(List<Item> inventory) {
+        this.inventory = inventory;
     }
-
-    @Override
-    public void setWeaponType(WeaponType weapon) {
-        this.weapon = weapon;
-    }
-
-    @Override
-    public void setArmorType(ArmorType armor) {
-        this.armor = armor;
-    }
-
-    @Override
-    public void setItemType(ItemType item) {
-        this.item = item;
-    }
-
-    @Override
-    public void setRingType(RingType ring) {
-        this.ring = ring;
-    }
-
-    @Override
-    public void setPotionType(PotionType potion) {
-        this.potion = potion;
-    }
-
+    
     @Override
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
@@ -129,34 +100,6 @@ public class CharacterBuilder implements Builder {
         return this.dexterity;
     }
 
-    public EquipmentType getEquipmentType() {
-        return this.equipmentType;
-    }
-
-    public EquipmentName getEquipmentName() {
-        return this.equipmentName;
-    }
-
-    public WeaponType getWeapon() {
-        return this.weapon;
-    }
-
-    public ArmorType getArmor() {
-        return this.armor;
-    }
-
-    public ItemType getItem() {
-        return this.item;
-    }
-
-    public RingType getRing() {
-        return this.ring;
-    }
-
-    public PotionType getPotion() {
-        return this.potion;
-    }
-
     public int getCurrentHealth() {
         return this.currentHealth;
     }
@@ -173,8 +116,9 @@ public class CharacterBuilder implements Builder {
         int level = getLevel();
         Profession profession = getProfession();
         int maxHealth = level * (5 + strength + defense + intelligence + dexterity) * profession.getHealthMultiplier();
-        return maxHealth;
-
+        int minHealthPercent = 20;
+        int minHealth = (int) (maxHealth * (minHealthPercent / 100.0));
+        return Math.max(minHealth, maxHealth);
     }
 
     public void setCurrentHealth(int currentHealth) {
@@ -258,8 +202,7 @@ public class CharacterBuilder implements Builder {
 
     public Character getCharacter() {
 
-        Character character = new Character(name, gender, race, profession, equipmentType, equipmentName, weapon, armor,
-                item, ring, potion, healthPoints, strength, defense, intelligence, dexterity);
+        Character character = new Character(name, gender, race, profession, equipment, inventory, healthPoints, strength, defense, intelligence, dexterity);
         return character;
     }
 
