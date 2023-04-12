@@ -8,6 +8,7 @@ Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (
  - [Lab 01](https://github.com/IgorAugust0/OOP2/tree/main/lab1)
  - [Lab 02](https://github.com/IgorAugust0/OOP2/tree/main/lab2)
  - [Lab 03](https://github.com/IgorAugust0/OOP2/tree/main/lab3)
+ - [Lab 04](https://github.com/IgorAugust0/OOP2/tree/63f4f042e0aeb07d9d2e77a13976d86429c4895c)
 
 
 ## Conteúdo dos Labs
@@ -18,7 +19,7 @@ Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (
 | 01 | Revisão |  
 | 02 | Threads  | 
 | 03 | Creacionais Factory | 
-| 04 | Creacionais Factory | 
+| 04 | Creacionais Builder | 
 
 
 ## Autor
