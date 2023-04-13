@@ -1,9 +1,15 @@
 package builder.util;
 
-//import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+/**
+ * Classe utilitária para uso nos métodos rollAttributes() e manualAttributes()
+ * da classe CharacterBuilder.
+ * 
+ * Lê a entrada do usuário, mostrando um prompt e depois verifica se o valor
+ * inserido está dentro dos limites especificados.
+ */
 public class InputUtils {
     public static int getValidInput(Scanner scanner, String prompt, int min, int max) {
         while (true) {
@@ -13,7 +19,7 @@ public class InputUtils {
                 if (input >= min && input <= max) {
                     return input;
                 }
-            } catch (/*InputMismatchException |*/ NoSuchElementException e) {
+            } catch (NoSuchElementException e) {
                 System.out.println("Ocorreu um erro. Digite um número inteiro.");
                 scanner.nextLine();
             }

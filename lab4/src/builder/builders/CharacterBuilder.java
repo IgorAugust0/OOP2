@@ -1,15 +1,18 @@
 package builder.builders;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Scanner;
-
-import builder.attributes.*;
 import builder.character.Character;
+import builder.attributes.*;
 import builder.equipments.*;
-import builder.util.InputUtils;
+import builder.util.*;
+import java.util.*;
 
+/**
+ * Classe CharacterBuilder que implementa a interface Builder e sobrescreve os
+ * métodos set para a construção do personagem.
+ * 
+ * Implementa métodos para gerar atributos aleatoriamente ou para inseri-los manualmente pelo usuário.
+ * 
+ */
 public class CharacterBuilder implements Builder {
     private String name;
     private Gender gender;
@@ -210,29 +213,31 @@ public class CharacterBuilder implements Builder {
         setIntelligence(Math.min(random.nextInt(20) + 1, limits.get(2)));
         setDexterity(Math.min(random.nextInt(20) + 1, limits.get(3)));
 
+        // Atribuir pontos de vida baseado nos atributos aleatórios
         int healthPoints = getHealthPoints();
         setHealthPoints(healthPoints);
 
         // Imprimir atributos após rolagem aleatória
-        System.out.printf("Attributes:\n" +
-                "  Health Points: %d\n" +
-                "  Strength:      %d\n" +
-                "  Defense:       %d\n" +
-                "  Intelligence:  %d\n" +
-                "  Dexterity:     %d\n",
+        System.out.printf("Atributos:\n" +
+                "  Vida: %d\n" +
+                "  Força:      %d\n" +
+                "  Defesa:       %d\n" +
+                "  Inteligência:  %d\n" +
+                "  Destreza:     %d\n",
                 healthPoints, strength, defense, intelligence, dexterity);
     }
 
     // Atribuir atributos manualmente pelo usuário
     public void manualAttributes() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Manually set attributes:");
+        System.out.println("Escollha os atributos manualmente:");
         int strength = InputUtils.getValidInput(scanner, "Insira a força (de 1 a 20): ", 1, 20);
         int defense = InputUtils.getValidInput(scanner, "Insira a defesa (de 1 e 20): ", 1, 20);
         int intelligence = InputUtils.getValidInput(scanner, "Insira a inteligência (de 1 e 20): ", 1, 20);
         int dexterity = InputUtils.getValidInput(scanner, "Insira a destreza (de 1 a 20): ", 1, 20);
 
-        if(getProfession() == null) {
+        // Verificar se a profissão foi escolhida antes de atribuir atributos
+        if (getProfession() == null) {
             System.out.println("Escolha uma profissão antes de atribuir atributos");
             return;
         }
@@ -245,11 +250,13 @@ public class CharacterBuilder implements Builder {
         setIntelligence(Math.min(intelligence, limits.get(2)));
         setDexterity(Math.min(dexterity, limits.get(3)));
 
+        // Obter a vida com base nos atributos e imprimi-la após atribuição manual
         int healthPoints = getHealthPoints();
         setHealthPoints(healthPoints);
         System.out.println("Vida do personagem: " + getHealthPoints());
     }
 
+    // Método para criar um personagem com base nos atributos
     public Character getCharacter() {
         Character character = new Character(name, gender, race, profession, equipmentType, equipmentName, weapon, armor,
                 item, ring, potion, healthPoints, strength, defense, intelligence, dexterity);

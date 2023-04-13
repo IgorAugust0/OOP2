@@ -5,6 +5,10 @@ package builder.character;
 import builder.attributes.*;
 import builder.equipments.*;
 
+/**
+ * Classe que representa o personagem, contendo todos os atributos e
+ * equipamentos, os quais são do tipo final para que não sejam alterados.
+ */
 public class Character {
     private final String name;
     private final Gender gender;
@@ -26,7 +30,8 @@ public class Character {
     private final int dexterity;
 
     public Character(String name, Gender gender, Race race, Profession profession, EquipmentType equipmentType,
-            EquipmentName equipmentName, WeaponType weapon, ArmorType armor, ItemType item, RingType ring, PotionType potion,int healthPoints, int strength, int defense, int intelligence, int dexterity) {
+            EquipmentName equipmentName, WeaponType weapon, ArmorType armor, ItemType item, RingType ring,
+            PotionType potion, int healthPoints, int strength, int defense, int intelligence, int dexterity) {
         this.name = name;
         this.gender = gender;
         this.race = race;
@@ -129,10 +134,12 @@ public class Character {
     // espada de gelo | Item: poção de cura
     // @Override
     // public String toString() {
-    //     String characterString = String.format("%s, %s %s\n", name, race, profession);
-    //     characterString += String.format("Vida: %d | Força: %d | Defesa: %d | Arma: %s | Item: %s\n", healthPoints,
-    //             strength, defense, weapon, item);
-    //     return characterString;
+    // String characterString = String.format("%s, %s %s\n", name, race,
+    // profession);
+    // characterString += String.format("Vida: %d | Força: %d | Defesa: %d | Arma:
+    // %s | Item: %s\n", healthPoints,
+    // strength, defense, weapon, item);
+    // return characterString;
     // }
 
 }

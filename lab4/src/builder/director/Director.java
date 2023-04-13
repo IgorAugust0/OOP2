@@ -7,6 +7,16 @@ import builder.builders.*;
 import builder.character.Character;
 import builder.equipments.*;
 
+/**
+ * Classe Director que contém o menu de opções para a criação do personagem.
+ * 
+ * Possui um sistema de pontuação para o usuário, que aumenta conforme o
+ * personagem é construído, com seu valor dependendo do tipo de atributo
+ * inserido.
+ * 
+ * Mostra ao final do processo o personagem criado pelo usuário, além do nome do
+ * jogador e sua respectiva pontuação.
+ */
 public class Director {
     private String playerName;
     private CharacterBuilder builder;

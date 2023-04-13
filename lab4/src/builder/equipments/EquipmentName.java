@@ -1,5 +1,9 @@
 package builder.equipments;
 
+/**
+ * Enum que representa os nome dos equipamentos do jogo com base no seu tipo.
+ *
+ */
 public enum EquipmentName {
 
     // Weapons

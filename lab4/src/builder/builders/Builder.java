@@ -3,6 +3,9 @@ package builder.builders;
 import builder.attributes.*;
 import builder.equipments.*;
 
+/**
+ * Interface que representa o Builder do padrão de projeto Builder.
+ */
 public interface Builder {
 
     void setName(String name);
