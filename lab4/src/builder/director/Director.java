@@ -110,6 +110,8 @@ public class Director {
                     }
                     case 8 -> {
                         builder.rollAttributes();
+                        System.out.println("Pressione qualquer tecla para continuar...");
+                        scanner.nextLine(); // espera por qualquer tecla
                         score += 5;
                     }
                     case 9 -> {
@@ -133,8 +135,8 @@ public class Director {
 
         }
         Character character = builder.getCharacter();
-        System.out.println("Personagem final:");
+        System.out.println("\nSeu personagem:");
         System.out.println(character);
-        System.out.println("Pontuação de " + playerName + ":" + score);
+        System.out.println("Pontuação de " + playerName + ": " + score);
     }
 }

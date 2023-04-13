@@ -14,10 +14,10 @@ public class InputUtils {
                     return input;
                 }
             } catch (/*InputMismatchException |*/ NoSuchElementException e) {
-                System.out.println("Invalid input, please try again.");
+                System.out.println("Ocorreu um erro. Digite um número inteiro.");
                 scanner.nextLine();
             }
-            System.out.println("Invalid input, please try again.");
+            System.out.println("Erro: Digite um número entre os limites especificados.");
             scanner.nextLine();
         }
     }

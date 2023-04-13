@@ -1,36 +1,22 @@
-package builder.character;
+// package builder.character;
 
-import builder.equipments.ItemType;
-import builder.equipments.PotionType;
-import builder.equipments.RingType;
+// import builder.equipments.ItemType;
+// import builder.equipments.*;
 
-public class Item {
-    private final ItemType itemType;
-    private final RingType ring;
-    private final PotionType potion;
-    private final int healthPoints;
+// public class Item {
+//     private final ItemType type;
+//     private final ItemName name;
 
-    public Item(ItemType itemType, RingType ring, PotionType potion, int healthPoints) {
-        this.itemType = itemType;
-        this.ring = ring;
-        this.potion = potion;
-        this.healthPoints = healthPoints;
-    }
+//     public Item(ItemType type, ItemName name) {
+//         this.type = type;
+//         this.name = name;
+//     }
 
-    public ItemType getItemType() {
-        return itemType;
-    }
+//     public ItemName getName() {
+//         return name;
+//     }
 
-    public RingType getRing() {
-        return ring;
-    }
-
-    public PotionType getPotion() {
-        return potion;
-    }
-
-    public int getHealthPoints() {
-        return healthPoints;
-    }
-}
-
+//     public ItemType getType() {
+//         return type;
+//     }
+// }

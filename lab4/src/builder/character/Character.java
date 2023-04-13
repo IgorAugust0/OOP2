@@ -111,16 +111,16 @@ public class Character {
 
     @Override
     public String toString() {
-        String characterString = String.format("Name: %s\n", name);
-        characterString += String.format("Gender: %s\n", gender);
-        characterString += String.format("Race: %s\n", race);
-        characterString += String.format("Profession: %s\n", profession);
-        characterString += String.format("Equipment: %s %s\n", equipmentType, equipmentName);
-        characterString += String.format("Health Points: %d\n", healthPoints);
-        characterString += String.format("Strength: %d\n", strength);
-        characterString += String.format("Defense: %d\n", defense);
-        characterString += String.format("Intelligence: %d\n", intelligence);
-        characterString += String.format("Dexterity: %d\n", dexterity);
+        String characterString = String.format("Nome: %s\n", name);
+        characterString += String.format("Gênero: %s\n", gender);
+        characterString += String.format("Raça: %s\n", race);
+        characterString += String.format("Profissão: %s\n", profession);
+        characterString += String.format("Equipmentos: %s %s\n", equipmentType, equipmentName);
+        characterString += String.format("Vida: %d\n", healthPoints);
+        characterString += String.format("Força: %d\n", strength);
+        characterString += String.format("Defesa: %d\n", defense);
+        characterString += String.format("Inteligência: %d\n", intelligence);
+        characterString += String.format("Destreza: %d\n", dexterity);
 
         return characterString;
     }

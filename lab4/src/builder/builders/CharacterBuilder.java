@@ -1,5 +1,7 @@
 package builder.builders;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,13 +22,11 @@ public class CharacterBuilder implements Builder {
     private RingType ring;
     private PotionType potion;
     private EquipmentName equipmentName;
-    private int healthPoints;
-    private int strength;
+    private int healthPoints, strength;
     private int defense;
     private int intelligence;
     private int dexterity;
     private int level = 1;
-    private int currentHealth;
 
     @Override
     public void setName(String name) {
@@ -91,21 +91,41 @@ public class CharacterBuilder implements Builder {
 
     @Override
     public void setStrength(int strength) {
+        List<Integer> limits = attributeLimits.get(getProfession());
+        int limit = limits.get(0);
+        if (strength > limit) {
+            strength = limit;
+        }
         this.strength = strength;
     }
 
     @Override
     public void setDefense(int defense) {
+        List<Integer> limits = attributeLimits.get(getProfession());
+        int limit = limits.get(1);
+        if (defense > limit) {
+            defense = limit;
+        }
         this.defense = defense;
     }
 
     @Override
     public void setIntelligence(int intelligence) {
+        List<Integer> limits = attributeLimits.get(getProfession());
+        int limit = limits.get(2);
+        if (intelligence > limit) {
+            intelligence = limit;
+        }
         this.intelligence = intelligence;
     }
 
     @Override
     public void setDexterity(int dexterity) {
+        List<Integer> limits = attributeLimits.get(getProfession());
+        int limit = limits.get(3);
+        if (dexterity > limit) {
+            dexterity = limit;
+        }
         this.dexterity = dexterity;
     }
 
@@ -157,10 +177,6 @@ public class CharacterBuilder implements Builder {
         return this.potion;
     }
 
-    public int getCurrentHealth() {
-        return this.currentHealth;
-    }
-
     public int getLevel() {
         return this.level;
     }
@@ -174,90 +190,67 @@ public class CharacterBuilder implements Builder {
         Profession profession = getProfession();
         int maxHealth = level * (5 + strength + defense + intelligence + dexterity) * profession.getHealthMultiplier();
         return maxHealth;
-
     }
 
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
-    }
+    // Método estático para criar um mapa de limites de atributos por profissão
+    private static final Map<Profession, List<Integer>> attributeLimits = Map.of(
+            Profession.WARRIOR, List.of(15, 15, 10, 15),
+            Profession.MAGE, List.of(10, 10, 15, 10),
+            Profession.ROGUE, List.of(10, 10, 15, 15));
 
     // Rolar atributos aleatoriamente
     public void rollAttributes() {
         final Random random = new Random();
-        healthPoints = random.nextInt(10) + 1;
-        strength = random.nextInt(10) + 1;
-        defense = random.nextInt(10) + 1;
-        intelligence = random.nextInt(10) + 1;
-        dexterity = random.nextInt(10) + 1;
+        Profession profession = getProfession();
+        List<Integer> limits = attributeLimits.get(profession);
+
+        // Atribuir atributos aleatoriamente dentro dos limites de cada profissão
+        setStrength(Math.min(random.nextInt(20) + 1, limits.get(0)));
+        setDefense(Math.min(random.nextInt(20) + 1, limits.get(1)));
+        setIntelligence(Math.min(random.nextInt(20) + 1, limits.get(2)));
+        setDexterity(Math.min(random.nextInt(20) + 1, limits.get(3)));
+
+        int healthPoints = getHealthPoints();
+        setHealthPoints(healthPoints);
+
+        // Imprimir atributos após rolagem aleatória
+        System.out.printf("Attributes:\n" +
+                "  Health Points: %d\n" +
+                "  Strength:      %d\n" +
+                "  Defense:       %d\n" +
+                "  Intelligence:  %d\n" +
+                "  Dexterity:     %d\n",
+                healthPoints, strength, defense, intelligence, dexterity);
     }
 
     // Atribuir atributos manualmente pelo usuário
     public void manualAttributes() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Manually set attributes:");
-        int strength = InputUtils.getValidInput(scanner, "Enter strength (between 1 and 20): ", 1, 20);
-        int defense = InputUtils.getValidInput(scanner, "Enter defense (between 1 and 20): ", 1, 20);
-        int intelligence = InputUtils.getValidInput(scanner, "Enter intelligence (between 1 and 20): ", 1, 20);
-        int dexterity = InputUtils.getValidInput(scanner, "Enter dexterity (between 1 and 20): ", 1, 20);
+        int strength = InputUtils.getValidInput(scanner, "Insira a força (de 1 a 20): ", 1, 20);
+        int defense = InputUtils.getValidInput(scanner, "Insira a defesa (de 1 e 20): ", 1, 20);
+        int intelligence = InputUtils.getValidInput(scanner, "Insira a inteligência (de 1 e 20): ", 1, 20);
+        int dexterity = InputUtils.getValidInput(scanner, "Insira a destreza (de 1 a 20): ", 1, 20);
 
-        Profession profession = getProfession();
-
-        // Imposição de limite de atributos baseado na profissão
-        switch (profession) {
-            case WARRIOR -> {
-                if (strength > 15) {
-                    strength = 15;
-                }
-                if (intelligence > 10) {
-                    intelligence = 10;
-                }
-                if (dexterity > 15) {
-                    dexterity = 15;
-                }
-                if (defense > 15) {
-                    defense = 15;
-                }
-            }
-            case MAGE -> {
-                if (strength > 10) {
-                    strength = 10;
-                }
-                if (intelligence > 15) {
-                    intelligence = 15;
-                }
-                if (dexterity > 10) {
-                    dexterity = 10;
-                }
-                if (defense > 10) {
-                    defense = 10;
-                }
-            }
-            case ROGUE -> {
-                if (strength > 10) {
-                    strength = 10;
-                }
-                if (intelligence > 10) {
-                    intelligence = 10;
-                }
-                if (dexterity > 15) {
-                    dexterity = 15;
-                }
-                if (defense > 10) {
-                    defense = 10;
-                }
-            }
+        if(getProfession() == null) {
+            System.out.println("Escolha uma profissão antes de atribuir atributos");
+            return;
         }
-        setStrength(strength);
-        setIntelligence(intelligence);
-        setDexterity(dexterity);
-        setDefense(defense);
+        Profession profession = getProfession();
+        List<Integer> limits = attributeLimits.get(profession);
+
+        // Atribuir atributos manualmente dentro dos limites de cada profissão
+        setStrength(Math.min(strength, limits.get(0)));
+        setDefense(Math.min(defense, limits.get(1)));
+        setIntelligence(Math.min(intelligence, limits.get(2)));
+        setDexterity(Math.min(dexterity, limits.get(3)));
 
         int healthPoints = getHealthPoints();
-        setCurrentHealth(healthPoints);
+        setHealthPoints(healthPoints);
+        System.out.println("Vida do personagem: " + getHealthPoints());
     }
 
     public Character getCharacter() {
-
         Character character = new Character(name, gender, race, profession, equipmentType, equipmentName, weapon, armor,
                 item, ring, potion, healthPoints, strength, defense, intelligence, dexterity);
         return character;
