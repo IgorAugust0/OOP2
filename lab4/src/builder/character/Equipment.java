@@ -18,5 +18,5 @@
 //     public EquipmentName getName() {
 //         return name;
 //     }
-// } 
+// }
 
