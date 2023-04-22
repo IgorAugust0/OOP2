@@ -10,7 +10,8 @@ import java.util.*;
  * Classe CharacterBuilder que implementa a interface Builder e sobrescreve os
  * métodos set para a construção do personagem.
  * 
- * Implementa métodos para gerar atributos aleatoriamente ou para inseri-los manualmente pelo usuário.
+ * Implementa métodos para gerar atributos aleatoriamente ou para inseri-los
+ * manualmente pelo usuário.
  * 
  */
 public class CharacterBuilder implements Builder {
