@@ -2,27 +2,24 @@
 
 Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (POO2) do curso de Sistemas de Informações da Universidade Federal de Uberlândia (UFU).
 
-
 ## Labs
 
- - [Lab 01](https://github.com/IgorAugust0/OOP2/tree/main/lab1)
- - [Lab 02](https://github.com/IgorAugust0/OOP2/tree/main/lab2)
- - [Lab 03](https://github.com/IgorAugust0/OOP2/tree/main/lab3)
- - [Lab 04](https://github.com/IgorAugust0/OOP2/tree/main/lab4)
-
+- [Lab 01](https://github.com/IgorAugust0/OOP2/tree/main/lab1)
+- [Lab 02](https://github.com/IgorAugust0/OOP2/tree/main/lab2)
+- [Lab 03](https://github.com/IgorAugust0/OOP2/tree/main/lab3)
+- [Lab 04](https://github.com/IgorAugust0/OOP2/tree/main/lab4)
+- [Lab 05](https://github.com/IgorAugust0/OOP2/tree/main/lab5)
 
 ## Conteúdo dos Labs
 
-
-| Lab   | Conteúdo |   
+| Lab   | Conteúdo |
 | :---------- | :--------- |
 | 01 | Revisão |  
-| 02 | Threads  | 
-| 03 | Creacionais Factory | 
-| 04 | Creacionais Builder | 
-
+| 02 | Threads  |
+| 03 | Creacionais Factory |
+| 04 | Creacionais Builder |
+| 05 | Comportamentais Observer |
 
 ## Autor
 
 - [@IgorAugust0](https://github.com/IgorAugust0)
-
