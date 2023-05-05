@@ -1,4 +1,4 @@
-package observer;
+package observer.observers;
 
 /**
  * Observador que exibe as informações da previsão do tempo de forma específica para agricultores

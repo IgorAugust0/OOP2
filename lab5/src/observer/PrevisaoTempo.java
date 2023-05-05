@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import observer.observers.Observer;
+
 /**
  * Classe base que representa a previsão do tempo, ela implementa a interface
  * Observable e possui os métodos para adicionar, remover e notificar os

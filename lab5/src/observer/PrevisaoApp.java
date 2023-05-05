@@ -1,5 +1,7 @@
 package observer;
 
+import observer.observers.Observer;
+
 /**
  * Classe de teste (não utilizada no programa principal)
  */

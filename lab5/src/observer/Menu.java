@@ -2,6 +2,10 @@ package observer;
 
 import java.util.Scanner;
 
+import observer.observers.Aeroporto;
+import observer.observers.Agricultor;
+import observer.observers.Jornal;
+
 /**
  * Classe menu que exibe o menu e permite a interação com o usuário para
  * adicionar e remover observadores e executar a previsão do tempo

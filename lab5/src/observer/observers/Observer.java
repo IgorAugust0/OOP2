@@ -1,4 +1,4 @@
-package observer;
+package observer.observers;
 
 /**
  * Interface que define o comportamento de um observador.
