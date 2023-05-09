@@ -1,7 +1,5 @@
 package observer;
 
-import observer.observers.Observer;
-
 /**
  * Interface que define os métodos necessários para um objeto ser observável.
  */

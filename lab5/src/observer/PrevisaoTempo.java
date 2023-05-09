@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import observer.observers.Observer;
-
 /**
  * Classe base que representa a previsão do tempo, ela implementa a interface
  * Observable e possui os métodos para adicionar, remover e notificar os
@@ -26,8 +24,7 @@ public class PrevisaoTempo implements Observable {
         this.observers = new ArrayList<>();
     }
 
-    // public PrevisaoTempo (String... operations) { // operations = {"temperature",
-    // "humidity", "rainFall", "windSpeed"}
+    // public PrevisaoTempo (String... operations) { // operations = {"temperature", "humidity", "rainFall", "windSpeed"}
     // for (String operation : operations) {
     // this.observers.put(operation, new ArrayList<>());
     // }
@@ -35,22 +32,18 @@ public class PrevisaoTempo implements Observable {
 
     public void setTemperatura(int temperatura) {
         this.temperatura = temperatura;
-        // notifyObservers();
     }
 
     public void setUmidade(int umidade) {
         this.umidade = umidade;
-        // notifyObservers();
     }
 
     public void setChuva(boolean chuva) {
         this.chuva = chuva;
-        // notifyObservers();
     }
 
     public void setVelocidadeVento(int velocidadeVento) {
         this.velocidadeVento = velocidadeVento;
-        // notifyObservers();
     }
 
     @Override
