@@ -2,3 +2,5 @@ Item.java
 Equipment.java
 game/
 *.class
+*.classpath
+*.project
