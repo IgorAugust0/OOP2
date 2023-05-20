@@ -1,4 +1,7 @@
-package observer;
+package observer.previsao;
+
+import observer.util.Observer;
+import observer.util.ObserverType;
 
 /**
  * Classe de teste (não utilizada no programa principal)

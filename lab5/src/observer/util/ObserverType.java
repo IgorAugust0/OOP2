@@ -1,4 +1,4 @@
-package observer;
+package observer.util;
 
 /**
  * Classe de teste (não utilizada no programa principal)

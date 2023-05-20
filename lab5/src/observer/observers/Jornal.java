@@ -1,5 +1,6 @@
-package observer;
+package observer.observers;
 
+import observer.util.Observer;
 
 /**
  * Observador que exibe as informações da previsão do tempo de forma específica para jornal

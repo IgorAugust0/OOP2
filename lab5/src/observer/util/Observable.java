@@ -1,4 +1,4 @@
-package observer;
+package observer.util;
 
 /**
  * Interface que define os métodos necessários para um objeto ser observável.
