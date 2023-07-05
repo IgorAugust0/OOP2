@@ -4,7 +4,7 @@ Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (
 
 ## Aulas
 
-| Aula   | Conteúdo |
+| Aula | Conteúdo |
 | :---------- | :--------- |
 | [01](Material/Aulas/POO2_01_Intro.pdf) | Introdução |
 | [02](Material/Aulas/POO2_02_Threads.pdf) | Threads |
@@ -19,7 +19,7 @@ Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (
 
 ## Labs
 
-| Lab   | Conteúdo |
+| Lab | Conteúdo |
 | :---------- | :--------- |
 | [01](https://github.com/IgorAugust0/OOP2/tree/main/lab1) | [Revisão](Material/Labs/POO2%20-%20Lab%200%20-%20Revis%C3%A3o.pdf) |  
 | [02](https://github.com/IgorAugust0/OOP2/tree/main/lab2) | [Threads](Material/Labs/POO2%20-%20Lab%201%20-%20Threads.pdf) |
@@ -29,8 +29,8 @@ Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (
 
 ## Resumos
 
-- Fiz alguns resumos no Notion para as provas de POO2. Não inclui todos os tópicos, apenas os que foram abordados nas provas.
-- Foram baseados no [Refactoring Guru](https://refactoring.guru/design-patterns) e no [Java Design Patterns](https://java-design-patterns.com/). Clique [aqui](https://igor-augusto.notion.site/POO2-5d9599de25eb40b4aea21a058b53f84c?pvs=4) para acessar.
+- Fiz alguns resumos no Notion para as provas, entretanto não inclui todos os tópicos, apenas os que foram abordados nas provas. Clique [aqui](https://igor-augusto.notion.site/POO2-5d9599de25eb40b4aea21a058b53f84c?pvs=4) para acessar.
+- Foram baseados no [Refactoring Guru](https://refactoring.guru/design-patterns) (há tambem o [repositório](https://github.com/RefactoringGuru/design-patterns-java) com os exemplos em diversas linguagens).
 
 ## Autor
 
