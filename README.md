@@ -1,4 +1,4 @@
-# Labs de POO2
+# Programação Orientada a Objetos 2 (POO2)
 
 Repositório com arquivos da disciplina de Programação Orientada a Objetos 2 (POO2) do curso de Sistemas de Informações da Universidade Federal de Uberlândia (UFU).
 
